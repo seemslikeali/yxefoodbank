@@ -3,3 +3,4 @@
 *.pyc
 *.pyc
 yxefoodbank/__pycache__/settings.cpython-310.pyc
+*.pyc
