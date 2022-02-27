@@ -16,6 +16,3 @@ def room(request, pk):
     room = Room.objects.get(id=pk)
     context = {'room': room}
     return render(request, 'base/room.html', context)
-
-def login(request):
-    return render(request, 'base/login.html')
