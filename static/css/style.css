@@ -1,4 +1,12 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+.hero{
+    background-image: url("https://images.unsplash.com/photo-1605433246995-23f532d1e001?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-size: cover;
+}
+
+.navbar-item {
+    font-weight: bold;
+}
 h1{
     color:green;
 }
