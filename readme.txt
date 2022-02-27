@@ -1,6 +1,6 @@
 Shaheq Shakeel
 
-To run web server on Mac Os:
+To run web server on Mac Os you will need virtual environment for python (venv):
 from root project directory in terminal write
     cd venvosx 
     source ./bin/activate
