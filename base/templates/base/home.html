@@ -1,55 +1,68 @@
 {% extends 'main.html'%}
 
 {% block content%}
-<section class="hero is-medium is-primary has-background">
-    <div class="hero-body">
-      <p class="title">
-        Live with peace of mind.
-      </p>
-      <p class="subtitle">
-        Food at your table everyday. We're here for you when time is tough.
-      </p>
-    </div>
-  </section>
-  
-  <section class="section">
-  <div class="columns">
-    <div class="column is-dark is-half">
-        <h5 class="is-size-3">Consider donating!</h5>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-        </p>
-        <br>
-        <button class="button is-primary">Read more</button>
+<section class="hero is-large is-info has-background">
+  <div class="hero-body">
+    <p class="title">
+      Live with peace of mind.
+    </p>
+    <p class="subtitle">
+      Food at your table everyday. We're here for you when time is tough.
+    </p>
+  </div>
+</section>
 
+<section class="section">
+  <div class="tile is-ancestor">
+
+    <div class="tile is-parent is-6">
+      <article class="tile is-child box">
+        <p class="title">Consider donating!</p>
+
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor
+            vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          <br>
+          <button class="button is-primary">Read more</button>
+        </div>
+      </article>
     </div>
-    <div class="column is-half">
-        <h5 class="is-size-3">Volunteer</h5>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-        </p>
-        <br>
-        <button class="button is-primary">Read more</button>
+
+    <div class="tile is-parent is-6">
+      <article class="tile is-child box">
+        <p class="title">Volunteer</p>
+
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor
+            vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+          <br>
+          <button class="button is-primary">Read more</button>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 
+
+
 <section class="section">
-<h1>Home Template</h1>
-<div>
+  <h1>Home Template</h1>
+  <div>
     <div>
-        {% for room in rooms%}
-        <div>
-            <span>@{{room.host.username}}</span>
-            <h5>
-                {{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a>
-            </h5>
-            <small>{{room.topic.name}}</small>
-            <hr>
-        </div>
-        {% endfor %}
-        
+      {% for room in rooms%}
+      <div>
+        <span>@{{room.host.username}}</span>
+        <h5>
+          {{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a>
+        </h5>
+        <small>{{room.topic.name}}</small>
+        <hr>
+      </div>
+      {% endfor %}
+
     </div>
-</div>
+  </div>
 </section>
 
 {% endblock content%}
