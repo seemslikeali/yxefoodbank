@@ -7,7 +7,7 @@ urlpatterns = [
     # other pages str=string pk=primaryvaluekey
     path('room/<str:pk>/', views.room, name="room"),
     # login page
-    path('login/', views.login, name="login"),
+    path('login/', views.loginPage, name="login"),
     path('signup/', views.signup, name="signup")
 
 ]

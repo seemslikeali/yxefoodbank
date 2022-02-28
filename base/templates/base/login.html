@@ -6,35 +6,30 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class= "column is-4 is">
-                    <form action="" class="box">
-                        <div class="field">
-                            <p class="title">Login</p>
-                            <label for="" class="label">
-                                Email:
-                                <i class="fa fa-address-book" aria-hidden="true"></i>
+                <div class="column is-4 is">
+                    <form method="POST" action="" class="box">
+                        {% csrf_token %}
 
-                            </label>
-                            <div class="control has-icons-left">
-                                <input type="email" class="input" placeholder="email@example.com">
-                                <span class="icon is-small is-left"></span>
-                                <i class="fa fa-envelope"></i>
-                                <br>
-                                <br>
-                                <label for="" class="label">
-                                    Password:
-                                <input type="Password" class="input" placeholder="Secret Password 123">
-                                <br>
-                                <br>
-                                <br>
-                                <div class="buttons">
-                                    <button class="button is-link">Login</button>
-                                  </div>
-                            </div>
+                        <p class="title">Login</p>
+                        <label for="" class="label">
+                        Username
+                        </label>
+                        <input type="text" name="username" class="input" placeholder="username">
 
-                            <hr> 
-                            <h1>Need to register? <a href="/signup"> Click here </a></h1>
-                        </div>
+                        <br>
+                        <br>
+
+                        <label for="" class="label">
+                        Password
+                        </label>
+                        <input type="Password" name="password" class="input" placeholder="*****">
+
+                        <br>
+                        <br>
+                        <button class="button is-link">Login</button>
+                        <hr>
+                        <h1>Need to register? <a href="/signup"> Click here </a></h1>
+
                     </form>
                 </div>
             </div>

@@ -18,8 +18,9 @@ def room(request, pk):
     return render(request, 'base/room.html', context)
 
 
-def login(request):
-    return render(request, 'base/login.html')
+def loginPage(request):
+    context = {}
+    return render(request, 'base/login.html', context)
 
 
 def signup(request):
