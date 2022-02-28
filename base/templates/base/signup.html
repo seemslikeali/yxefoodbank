@@ -1,46 +1,26 @@
 {% extends 'main.html'%}
 
+{% if form.errors %}
+  <div class="notification is-warning">
+  <button class="delete"></button>
+  There was an error with your submittion, please try again
+  </div>
+{% endif %}
+
+
 {% block content%}
 
 
 <section class="section supage">
   <div class="tile is-ancestor">
-    <div class="tile is-parent is-7">
-      <form class="tile is-child box" method="POST" action="">
+      <form class="tile is-child box" method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
         <p class="title">Sign up</p>
-
+        {{form}}
         <div class="content">
           {% comment %} add here {% endcomment %}
           <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="John Doe">
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Email</label>
-              <input class="input " type="text" placeholder="johndoe@email.com">
-          </div>
-          <div class="field">
-            <label class="label">Username</label>
-              <input class="input" value="username" type="text" placeholder="username">
-          </div>
-
-          <div class="field">
-            <label class="label">Password</label>
-              <input class="input " value="password" type="text" placeholder="*****">
-          </div>
-
-          <div class="field">
-            <label class="label">Phone number</label>
-              <input class="input " type="text" placeholder="306-955-9555">
-          </div>
-
-          <div class="field">
-            <label class="label">Home Address</label>
-              <input class="input " type="text" placeholder="1st Ave South. Saskatoon, SK. S7A 1W1">
-          </div>
+ 
           <br>
           
           <div class="field">
