@@ -1,0 +1,81 @@
+{% extends 'main.html'%}
+
+{% block content%}
+
+
+<section class="section supage">
+  <div class="tile is-ancestor">
+
+    <div class="tile is-parent is-7">
+      <article class="tile is-child box">
+        <p class="title">Sign up</p>
+
+        <div class="content">
+          {% comment %} add here {% endcomment %}
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="John Doe">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Username</label>
+              <input class="input " type="text" placeholder="username">
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+              <input class="input " type="text" placeholder="*****">
+          </div>
+
+          <div class="field">
+            <label class="label">Phone number</label>
+              <input class="input " type="text" placeholder="306-955-9555">
+          </div>
+
+          <div class="field">
+            <label class="label">Home Address</label>
+              <input class="input " type="text" placeholder="1st Ave South. Saskatoon, SK. S7A 1W1">
+          </div>
+          <br>
+          
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox">
+                I agree to the <a href="#">terms and conditions</a>
+              </label>
+            </div>
+          </div>
+          <br>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tile is-parent is-5">
+      <article class="tile is-child box suloginbox">
+        <p class="title has-text-centered">Already have an account?</p>
+        <div class="content">
+
+          <p> Click here to log in</p>
+          <a class="button is-primary" href="/login">
+            Log in
+          </a>
+          
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+   
+
+
+
+{% endblock content%}

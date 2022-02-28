@@ -14,3 +14,25 @@
 .navbar-item logo{
     font-weight: bold;
 }
+
+.logotext{
+    font-weight: bold;
+}
+
+.supage{
+    margin: auto;
+    width: 900px;
+    /* height: 1080px; */
+}
+
+.suloginbox{
+    text-align: center;
+    height: 250px;
+}
+
+.footer{
+    margin-top: auto;
+}
+
+
+

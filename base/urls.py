@@ -6,7 +6,8 @@ urlpatterns = [
     path('', views.home, name="home"),
     # other pages str=string pk=primaryvaluekey
     path('room/<str:pk>/', views.room, name="room"),
-    #login page
+    # login page
     path('login/', views.login, name="login"),
+    path('signup/', views.signup, name="signup")
 
 ]
