@@ -3,6 +3,10 @@ from .models import Room
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+# Using login required all you have to do is write @login_required line before function
+
+
 # Create your views here. WHERE WE CONFIGURE OUR PAGES
 
 # from tutorial video
@@ -38,6 +42,11 @@ def loginPage(request):
             messages.error(request, "Username or Password is invalid.")
     context = {}
     return render(request, 'base/login.html', context)
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/')
 
 
 def signup(request):
