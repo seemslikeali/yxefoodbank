@@ -26,6 +26,10 @@ def room(request, pk):
 
 
 def loginPage(request):
+    # if a user is logged in, they can't login again
+    if request.user.is_authenticated:
+        return redirect('/')
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -50,4 +54,8 @@ def logoutUser(request):
 
 
 def signup(request):
+    # if a user is logged in, they can't login again
+    if request.user.is_authenticated:
+        return redirect('/')
+
     return render(request, 'base/signup.html')
