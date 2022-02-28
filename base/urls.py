@@ -8,6 +8,7 @@ urlpatterns = [
     path('room/<str:pk>/', views.room, name="room"),
     # login page
     path('login/', views.loginPage, name="login"),
-    path('signup/', views.signup, name="signup")
+    path('signup/', views.signup, name="signup"),
+    path('logout/', views.logoutUser, name="logout"),
 
 ]
