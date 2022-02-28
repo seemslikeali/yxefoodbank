@@ -24,7 +24,7 @@
         </div>
       </article>
     </div>
-
+    
     <div class="tile is-parent is-6">
       <article class="tile is-child box">
         <p class="title">Volunteer</p>
@@ -35,28 +35,6 @@
           <button class="button is-primary">Read more</button>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-
-
-
-<section class="section">
-  <h1>Home Template</h1>
-  <div>
-    <div>
-      {% for room in rooms%}
-      <div>
-        <span>@{{room.host.username}}</span>
-        <h5>
-          {{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a>
-        </h5>
-        <small>{{room.topic.name}}</small>
-        <hr>
-      </div>
-      {% endfor %}
-
     </div>
   </div>
 </section>

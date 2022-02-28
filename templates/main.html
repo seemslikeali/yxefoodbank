@@ -16,11 +16,21 @@
 
     {% include 'navbar.html'%}
         {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li> {{ message }}</li>
-            {% endfor %}
-        </ul>
+        <article class="message is-danger">
+            <div class="message-header">
+              <p>Attention</p>
+              {% comment %} <button class="delete" aria-label="delete"></button> {% endcomment %}
+            </div>
+            <div class="message-body">
+                <ul class="messages">
+
+                    {% for message in messages %}
+                    <li> {{ message }}</li>
+                    {% endfor %}
+                </ul> 
+            </div>
+        </article>
+        
         {% endif %}
         {% block content%}
         {% endblock %}
