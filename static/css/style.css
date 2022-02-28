@@ -1,7 +1,21 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
-.hero{
-    background-image: url("https://images.unsplash.com/photo-1605433246995-23f532d1e001?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+.hero {
+    background-image: url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+}
+
+.herotitle{
+    text-shadow: 1px 1px 2px black;
+}
+
+.herosubtitle{
+    color:hsl(171, 100%, 41%)!important;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
 }
 
 .button { 
