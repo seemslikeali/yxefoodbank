@@ -36,4 +36,4 @@ class SignupForm(UserCreationForm):
 
         for fieldname in ['password1']:
             self.fields[fieldname].label = 'Email'
-            #self.label_suffix[fieldname].label = 'what'
+            #self.label_suffix[fieldname].label = 

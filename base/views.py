@@ -54,8 +54,19 @@ def logoutUser(request):
 
 
 def signup(request):
-    # if a user is logged in, they can't login again
-    if request.user.is_authenticated:
-        return redirect('/')
-
     return render(request, 'base/signup.html')
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            #log the user in auto with theline of code below
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, ("Registration Succesful"))
+            return redirect('/')
+        
+    else:
+        form = SignupForm()
+    return render (request, 'base/signup.html', {'form':form})
