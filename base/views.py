@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Room
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 # Create your views here. WHERE WE CONFIGURE OUR PAGES
 
 # from tutorial video
@@ -19,6 +22,20 @@ def room(request, pk):
 
 
 def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, "User doesn't exist or is deleted.")
+        user = authenticate(request, username=username, password=password)
+
+        if user != None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.error(request, "Username or Password is invalid.")
     context = {}
     return render(request, 'base/login.html', context)
 
