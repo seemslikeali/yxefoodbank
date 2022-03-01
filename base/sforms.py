@@ -7,15 +7,15 @@ from django import forms
 
 
 class SignupForm(UserCreationForm):
-    name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'input class':'input', 'type':'text', 'placeholder':'John Doe'}))
+    first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'input class':'input', 'type':'text', 'placeholder':'John'}))
+    last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'input class':'input', 'type':'text', 'placeholder':'Doe'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'input class':'input', 'type':'text', 'placeholder':'johndoe@email.com'}))
-    phone_Number = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'input class':'input', 'type':'text', 'placeholder':'306-955-9555'}))
-    address = forms.CharField(widget=forms.TextInput(attrs={'input class':'input', 'type':'text', 'placeholder':'1st Ave South. Saskatoon, SK. S7A 1W1'}))
+    phone_Number = forms.CharField(max_length=10, widget=forms.NumberInput(attrs={'input class':'input', 'type':'number', 'placeholder':'306-955-9555'}))
     #username = 
 
     class Meta:
         model = User
-        fields = ('name', 'email', 'phone_Number', 'address', 'username', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'phone_Number', 'username', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super(SignupForm, self).__init__(*args, **kwargs)
@@ -35,5 +35,7 @@ class SignupForm(UserCreationForm):
 
 
         for fieldname in ['password1']:
-            self.fields[fieldname].label = 'Email'
-            #self.label_suffix[fieldname].label = 
+            self.fields[fieldname].label = 'Password'
+
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
