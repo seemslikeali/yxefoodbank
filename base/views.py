@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .sforms import SignupForm
 # Using login required all you have to do is write @login_required line before function
 
 
@@ -54,7 +55,6 @@ def logoutUser(request):
 
 
 def signup(request):
-    return render(request, 'base/signup.html')
     if request.method == "POST":
         form = SignupForm(request.POST)
         if form.is_valid():
