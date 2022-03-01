@@ -11,15 +11,15 @@
 {% block content%}
 
 <section class="section supage">
-  <div class="tile is-ancestor">
+  <div class="tile is-ancestor" style="line-height: 2.3;">
       <form class="tile is-child box" method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
         <p class="title">Sign up</p>
-        {{form}}
+        
         <div class="content">
           {% comment %} add here {% endcomment %}
           <div class="field">
- 
+            {{form}}
           <br>
           
           <div class="field">
