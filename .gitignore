@@ -6,3 +6,5 @@ yxefoodbank/__pycache__/settings.cpython-310.pyc
 *.pyc
 *.pyc
 venv/Lib/site-packages/pip/_vendor/urllib3/util/__pycache__/timeout.cpython-39.pyc
+*.pyc
+*.pyc
