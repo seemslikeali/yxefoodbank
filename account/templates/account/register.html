@@ -6,7 +6,7 @@
   {% csrf_token %} {% for field in registration_form%} {{field.label_tag}}
   {{field}} {% if field.help_text%}
   <small>{{field.help_text}}</small>
-  {% endif %} {% for error in field.error %}
+  {% endif %} {% for error in field.errors %}
   <p style="color: red">{{error}}</p>
   {% endfor %} <br />{% endfor %}
 
