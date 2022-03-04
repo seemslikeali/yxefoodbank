@@ -1,49 +1,33 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>YXE Food Bank</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://kit.fontawesome.com/a2e9d60101.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/a2e9d60101.js"
+      crossorigin="anonymous"
+    ></script>
     <script>
-        function myFunction() {
-            var x = document.getElementById("delete");
-            if (x.style.display === "none") {
-              x.style.display = "block";
-            } else {
-              x.style.display = "none";
-            }
-          }
+      function myFunction() {
+        var x = document.getElementById("delete");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
     </script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     {% include 'navbar.html'%}
-        {% if messages %}
-        <article class="message is-dark" id="delete">
-            <div class="message-header">
-              <p>Attention</p>
-              <button class="delete" aria-label="delete" onclick="myFunction()"></button>
-            </div>
-            <div class="message-body">
-                <ul class="messages">
-
-                    {% for message in messages %}
-                    <li> {{ message }}</li>
-                    {% endfor %}
-                </ul> 
-            </div>
-        </article>
-        
-        {% endif %}
-        {% block content%}
-        {% endblock %}
+    {% block content%}
+    {% endblock %}
     {% include 'footer.html' %}
-</body>
-
+  </body>
 </html>

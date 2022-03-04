@@ -10,9 +10,24 @@ from .sforms import SignupForm
 
 
 def home(request):
-
     # can also be done like this return render(request, 'home.html', {'rooms': rooms})
     return render(request, 'base/home.html')
+
+
+def volunteerPage(request):
+    return render(request, 'base/volunteer.html')
+
+
+def aboutPage(request):
+    return render(request, 'base/about.html')
+
+
+def donatePage(request):
+    return render(request, 'base/donate.html')
+
+
+def contactPage(request):
+    return render(request, 'base/contact.html')
 
 
 def loginPage(request):

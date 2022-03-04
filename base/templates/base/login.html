@@ -2,40 +2,66 @@
 
 {% block content%}
 
-<body>
-    <div class="hero-body mainsplash">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-4 is">
-                    <form method="POST" action="" class="box">
-                        {% csrf_token %}
+{% if messages %}
+<article class="message is-danger" id="delete">
+    <div class="message-header">
+      <p>Attention</p>
+      <button class="delete" aria-label="delete" onclick="myFunction()"></button>
+    </div>
+    <div class="message-body">
+        <ul class="messages">
 
-                        <p class="title">Login</p>
-                        <label for="" class="label">
-                        Username
-                        </label>
-                        <input type="text" name="username" class="input" placeholder="username">
+            {% for message in messages %}
+            <li style="text-align:center;"> {{ message }}</li>
+            {% endfor %}
+        </ul> 
+    </div>
+</article>
 
-                        <br>
-                        <br>
+{% endif %}
 
-                        <label for="" class="label">
-                        Password
-                        </label>
-                        <input type="Password" name="password" class="input" placeholder="*****">
 
-                        <br>
-                        <br>
-                        <button type="submit" value="Login" class="button is-link">Login</button>
-                        <hr>
-                        <h1>Need to register? <a href="/signup"> Sign up </a></h1>
+<div class="hero-body mainsplash">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-4 is">
+                <form method="POST" action="" class="box">
+                    {% csrf_token %}
 
-                    </form>
-                </div>
+                    <p class="title">Login</p>
+                    <hr>
+                    <label for="" class="label">
+                    Username
+                    </label>
+                    <div class="field">
+                        <p class="control has-icons-left ">
+                            <input class="input" type="text" name="username" type="email" placeholder="Username">
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <label for="" class="label">
+                    Password
+                    </label>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input type="Password" name="password" class="input" type="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <br>
+                    <button type="submit" value="Login" class="button is-link">Login</button>
+                    <hr>
+                    <h1>Need to register? <a href="/signup"> Sign up </a></h1>
+                </form>
             </div>
         </div>
     </div>
-</body>
+</div>
+
 
 
 {% endblock content%}
