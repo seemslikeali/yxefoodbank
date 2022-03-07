@@ -6,21 +6,12 @@
       {% csrf_token %}
       <p class="title">Sign Up</p>
       <hr>
-      
       <!-- First Name -->
       <div class="field" style="line-height:2rem;">
         <label class="label">First Name</label>
         <p class="control has-icons-left has-icons-right">
-          <input
-            class="input"
-            type="text"
-            placeholder="First Name"
-            autofocus=""
-            name="first_name"
-            maxlength="30"
-            required=""
-            id="id_first_name"
-          />
+          <input class="input" type="text" placeholder="First Name" autofocus="" name="first_name" maxlength="30"
+            required="" id="id_first_name" />
           <span class="icon is-small is-left">
             <i class="fas fa-f"></i>
           </span>
@@ -31,15 +22,8 @@
       <div class="field">
         <label class="label">Last Name</label>
         <p class="control has-icons-left has-icons-right">
-          <input
-            class="input"
-            type="text"
-            placeholder="Last Name"
-            name="last_name"
-            maxlength="30"
-            required=""
-            id="id_last_name"
-          />
+          <input class="input" type="text" placeholder="Last Name" name="last_name" maxlength="30" required=""
+            id="id_last_name" />
           <span class="icon is-small is-left">
             <i class="fas fa-l"></i>
           </span>
@@ -50,15 +34,7 @@
       <div class="field">
         <label class="label">Email</label>
         <p class="control has-icons-left has-icons-right">
-          <input
-            class="input"
-            type="email"
-            placeholder="Email"
-            name="email"
-            maxlength="60"
-            required=""
-            id="id_email"
-          />
+          <input class="input" type="email" placeholder="Email" name="email" maxlength="60" required="" id="id_email" />
           <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
           </span>
@@ -69,16 +45,8 @@
       <div class="field">
         <label class="label">Phone Number</label>
         <p class="control has-icons-left has-icons-right">
-          <input
-            class="input"
-            type="tel"
-            pattern="[0-9]{10}"
-            placeholder="3061234567"
-            name="phone"
-            maxlength="10"
-            required=""
-            id="id_phone"
-          />
+          <input class="input" type="tel" pattern="[0-9]{10}" placeholder="3061234567" name="phone" maxlength="10"
+            required="" id="id_phone" />
           <span class="icon is-small is-left">
             <i class="fas fa-phone"></i>
           </span>
@@ -89,15 +57,8 @@
       <div class="field">
         <label class="label">Username</label>
         <p class="control has-icons-left has-icons-right">
-          <input
-            class="input"
-            type="username"
-            placeholder="Username"
-            name="username"
-            maxlength="30"
-            required=""
-            id="id_username"
-          />
+          <input class="input" type="username" placeholder="Username" name="username" maxlength="30" required=""
+            id="id_username" />
           <span class="icon is-small is-left">
             <i class="fas fa-user"></i>
           </span>
@@ -108,15 +69,8 @@
       <div class="field">
         <label class="label">Password</label>
         <p class="control has-icons-left">
-          <input
-            class="input"
-            type="password"
-            name="password1"
-            autocomplete="off"
-            required=""
-            id="id_password1"
-            placeholder="Password"
-          />
+          <input class="input" type="password" name="password1" autocomplete="off" required="" id="id_password1"
+            placeholder="Password" />
           <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
           </span>
@@ -127,52 +81,44 @@
       <div class="field">
         <label class="label">Confirm Password</label>
         <p class="control has-icons-left">
-          <input
-            class="input"
-            type="password"
-            name="password2"
-            autocomplete="off"
-            required=""
-            id="id_password2"
-            placeholder="Confirm Password"
-          />
+          <input class="input" type="password" name="password2" autocomplete="off" required="" id="id_password2"
+            placeholder="Confirm Password" />
           <span class="icon is-small is-left">
             <i class="fas fa-check-double"></i>
           </span>
         </p>
-        <br style="display:block; margin: 5px 0;"
-        <small class="is-size-7">
-          <ul style="line-height: 15px; color:grey; font-size:12px; padding-left: 10px;">
-            <li>
-              Your password can’t be too similar to your other personal
-              information.
-            </li>
-            <li>Your password must contain at least 8 characters.</li>
-            <li>Your password can’t be a commonly used password.</li>
-            <li>Your password can’t be entirely numeric.</li>
-          </ul>
+        <br style="display:block; margin: 5px 0;" <small class="is-size-7">
+        <ul style="line-height: 15px; color:grey; font-size:12px; padding-left: 10px;">
+          <li>
+            Your password can’t be too similar to your other personal
+            information.
+          </li>
+          <li>Your password must contain at least 8 characters.</li>
+          <li>Your password can’t be a commonly used password.</li>
+          <li>Your password can’t be entirely numeric.</li>
+        </ul>
         </small>
       </div>
 
       {% for field in registration_form %}
-        {% for error in field.errors %}
-          <p style="color: red; font-weight:bold;">{{ error }}</p>
-        {% endfor %}
+      {% for error in field.errors %}
+      <p style="color: red; font-weight:bold;">{{ error }}</p>
+      {% endfor %}
       {% endfor %}
       {% if registration_form.non_field_errors %}
-        <div style="color: red; font-weight:bold;">
-          <p>{{registration_form.non_field_errors}}</p>
-        </div>
+      <div style="color: red; font-weight:bold;">
+        <p>{{registration_form.non_field_errors}}</p>
+      </div>
       {% endif %}
-      
+
       <label class="checkbox">
         <input type="checkbox" data-np-checked="1" />
         I agree to the <a href="#">terms and conditions</a>
-        <br style="display:block; margin: 0.3px 0;"/>
+        <br style="display:block; margin: 0.3px 0;" />
       </label>
-      
       <div class="field">
         <p class="control">
+          <br style="display:block; margin: 5px 0;">
           <button class="button is-link">Sign up</button>
         </p>
       </div>
