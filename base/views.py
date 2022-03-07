@@ -6,17 +6,28 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .sforms import SignupForm
 # Using login required all you have to do is write @login_required line before function
-
-
 # Create your views here. WHERE WE CONFIGURE OUR PAGES
-
-# from tutorial video
 
 
 def home(request):
-
     # can also be done like this return render(request, 'home.html', {'rooms': rooms})
     return render(request, 'base/home.html')
+
+
+def volunteerPage(request):
+    return render(request, 'base/volunteer.html')
+
+
+def aboutPage(request):
+    return render(request, 'base/about.html')
+
+
+def donatePage(request):
+    return render(request, 'base/donate.html')
+
+
+def contactPage(request):
+    return render(request, 'base/contact.html')
 
 
 def loginPage(request):

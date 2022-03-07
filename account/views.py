@@ -5,6 +5,9 @@ from account.forms import RegistrationForm
 
 
 def registration_view(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+
     context = {}
     if request.POST:
         form = RegistrationForm(request.POST)
