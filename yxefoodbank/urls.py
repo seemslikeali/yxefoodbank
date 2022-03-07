@@ -6,5 +6,6 @@ from account.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
+    path('', include('store.urls')),
     path('register/', registration_view, name="register"),
 ]
