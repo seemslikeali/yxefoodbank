@@ -28,3 +28,15 @@ __DIR__
 ./base/templates holds all our pages that are not associated with account management
 ./account/templates currently only hold register.html page
 
+
+
+__CREATING NEW APP__
+How to create a new app from root directory
+
+python manage.py startapp store
+
+
+
+__PASSING CHANGES TO THE DATABASE__
+python manage.py makemigrations
+python manage.py migrate       

@@ -1,0 +1,12 @@
+{% extends 'main.html' %} {% block content %}
+{% load static%}
+
+
+{% for product in products %}
+<div class="box">
+{{product.name}}
+</div>
+
+{% endfor %}
+
+{% endblock content %}

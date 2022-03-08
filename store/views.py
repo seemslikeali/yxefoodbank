@@ -1,7 +1,14 @@
+from itertools import product
 from django.shortcuts import render
+from django.template import context
+from .models import Product
 
 # Create your views here.
 
 
 def store(request):
-    return render(request, 'about.html')
+    products = Product.objects.all()
+    context = {'products':products}
+    return render(request, 'storec.html', context)
+
+
