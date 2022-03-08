@@ -5,13 +5,15 @@
         {% for product in products %}
         <div class="column is-one-quarter" style="display: block;">
             <article class="tile is-child box">
-                <figure class="image is-128x128">
-                    <img class="thumbnail"  src="{{product.images.url}}">
+                <figure class="image is-128x128 is-justify-content-center is-flex">
+                    <img class="thumbnail" src="{{product.image.url}}">
+                    <script>console.log({{ product.image.url }})</script>
                 </figure>
-                <h3>{{ product.name }}</h3>
-                <p class="subtitle">lamsdg'piasdgjasdg</p>
+                <hr>
+                <h3 class="title">{{ product.name }}</h3>
+                <small style="font-size:10px;">30 cal.</small>
+                <p class="subtitle">Item description.</p>
                 <div class="buttons ">
-                    <a class="button" href="#"> View Info</a>
                     <button class="button is-primary">Add to cart</button>
                 </div>
             </article>
