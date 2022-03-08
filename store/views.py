@@ -9,6 +9,6 @@ from .models import Product
 def store(request):
     products = Product.objects.all()
     context = {'products':products}
-    return render(request, 'storec.html', context)
+    return render(request, 'store.html', context)
 
 

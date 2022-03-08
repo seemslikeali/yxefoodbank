@@ -1,0 +1,110 @@
+{% extends 'main.html' %} {% block content %}
+{% load static%}
+{% for product in products %}
+<div class="columns">
+  <div class="column">
+    <div class="box">
+      <div class="box-item has-text-centered">
+        <img src="{% static 'images/milk.png' %}" width="262">
+        <h6>alien</h6>
+        <hr>
+        <nav class="level">
+          <div class="level-item has-text-centered">
+          <div>
+            <div class="buttons ">
+              <a class="button" href="#"> View Info</a>
+              <button class="button is-primary">Add to cart</button>
+            </div>
+        </div>  </div> </div></div>
+        <div class="column">
+          <div class="box">
+            <div class="box-item has-text-centered">
+              <img src="{% static 'images/snacks.png' %}" width="285">
+              <h6>{{product.name}}</h6>
+              <hr>
+              <nav class="level">
+                <div class="level-item has-text-centered">
+                  <div>
+                    <div class="buttons ">
+                      <a class="button" href="#"> View Info</a>
+                      <button class="button is-primary">Add to cart</button>
+                    </div>
+                  </div>  </div> </div></div></div>
+      </div>
+  <div class="column">
+    <div class="box">
+      <div class="box-item has-text-centered">
+        <img src="{% static 'images/fruits.png' %}" >
+        <h6>{{product.name}}</h6>
+        <hr>
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <div class="buttons ">
+                <a class="button" href="#"> View Info</a>
+                <button class="button is-primary">Add to cart</button>
+              </div>
+            </div>  </div> </div></div>
+            <div class="column">
+              <div class="box">
+                <div class="box-item has-text-centered">
+                  <img src="{% static 'images/canned.png' %}" width="300">
+                  <h6>{{product.name}}</h6>
+                  <hr>
+                  <nav class="level">
+                    <div class="level-item has-text-centered">
+                      <div>
+                        <div class="buttons ">
+                          <a class="button" href="#"> View Info</a>
+                          <button class="button is-primary">Add to cart</button>
+                        </div>
+                      </div>  </div> </div></div></div>
+          </div>          
+  <div class="column">
+    <div class="box">
+      <div class="box-item has-text-centered">
+        <img src="{% static 'images/vegetables.png' %}">
+        <h6>{{product.name}}</h6>
+        <hr>
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <div class="buttons ">
+                <a class="button" href="#"> View Info</a>
+                <button class="button is-primary">Add to cart</button>
+              </div>
+          </div>  </div> </div></div>
+          <div class="column">
+            <div class="box">
+              <div class="box-item has-text-centered">
+                <img src="{% static 'images/flour.png' %}" width="260">
+                <h6>{{product.name}}</h6>
+                <hr>
+                <nav class="level">
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <div class="buttons ">
+                        <a class="button" href="#"> View Info</a>
+                        <button class="button is-primary">Add to cart</button>
+                      </div>
+                    </div>  </div> </div></div></div>
+        </div>
+  <div class="column">
+    <div class="box">
+      <div class="box-item has-text-centered">
+        <img src="{% static 'images/cereal.png' %}" width="262">
+        <h6>{{product.name}}</h6>
+        <hr>
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <div class="buttons ">
+                <a class="button" href="#"> View Info</a>
+                <button class="button is-primary">Add to cart</button>
+              </div>
+          </div>  </div> </div></div></div>
+</div>
+{% endfor %}
+
+
+{% endblock content %}
