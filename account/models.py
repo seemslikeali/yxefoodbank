@@ -65,6 +65,7 @@ class Account(AbstractBaseUser):
     REQUIRED_FIELDS = ['email', 'phone', 'first_name', 'last_name']
 
     objects = MyAccountManager()
+    # Django requirements
 
     def __str__(self):
         return self.username
