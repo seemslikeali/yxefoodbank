@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .sforms import SignupForm
 # Using login required all you have to do is write @login_required line before function
 # Create your views here. WHERE WE CONFIGURE OUR PAGES
 
@@ -46,6 +45,9 @@ def loginPage(request):
 
         if user != None:
             login(request, user)
+            messages_in_django = messages.get_messages(request)
+            for message in messages_in_django:
+                pass
             return redirect('/')
         else:
             messages.error(request, "Username or Password is invalid.")
@@ -56,20 +58,3 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('/')
-
-
-def signup(request):
-    if request.method == "POST":
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            # log the user in auto with theline of code below
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            messages.success(request, ("Registration Succesful"))
-            return redirect('/')
-    else:
-        form = SignupForm()
-    return render(request, 'base/signup.html', {'form': form})
