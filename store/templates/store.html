@@ -1,6 +1,6 @@
 {% extends 'main.html' %} {% block content %}
 {% load static %}
-
+{% if request.user.is_authenticated %}
 <div class="container is-fluid">
     <div class="notification is-secondary">
         <div class="tile is-ancestor">
@@ -84,5 +84,19 @@
 
     </div>
 </div>
+{% else %}
+<article class="message is-danger" id="delete">
+    <div class="message-header">
+      <p>Attention</p>
+      <button class="delete" aria-label="delete" onclick="myFunction()"></button>
+    </div>
+    <div class="message-body" >
+        <ul class="messages">
+            <li style="text-align:center;"> Please login/register to access this page </li>
+        </ul> 
+    </div>
+</article>
+{% endif %}
+
 
 {% endblock content %}
