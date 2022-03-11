@@ -48,7 +48,14 @@
       <a class="navbar-item" href="{% url 'donate' %}"> Donate </a>
       <a class="navbar-item" href="{% url 'volunteer' %}"> Volunteer </a>
       {% if request.user.is_authenticated %}
-      <a class="navbar-item is-warning is-light" href="{% url 'store' %}" style=" color: hsl(171, 100%, 41%)!important;">Create Order</a>
+          <nav class="level" href="{% url 'store' %}">
+            <div class="level-item has-text-centered">
+              <div>
+                <div class="buttons">
+                  <button class="button is-primary" onclick="location.href='{% url "store" %}' " >Create Order</button>
+                </div>
+              </div>
+            </div>
       {% endif %}
       <hr class="navbar-divider" />
     </div>
