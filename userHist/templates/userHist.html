@@ -1,0 +1,16 @@
+{% extends 'main.html' %} {% block content %}
+<div class="container">
+  <div class="notification is-secondary">
+    <div class="title">History</div>
+    <p>
+        This spot is for including the customer's order history
+        {%for form in forms%}
+        <div class="header">
+          <h1 class="title">{{form.transaction_id}}</h1>
+        </div>
+        {% endfor %}
+    </p>
+  </div>
+</div>
+
+{% endblock content %}

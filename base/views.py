@@ -28,7 +28,6 @@ def donatePage(request):
 def contactPage(request):
     return render(request, 'base/contact.html')
 
-
 def loginPage(request):
     # if a user is logged in, they can't login again
     if request.user.is_authenticated:
