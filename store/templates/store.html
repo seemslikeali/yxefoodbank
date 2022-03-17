@@ -40,10 +40,11 @@
                     <div class="tile is-child box">
                         <p class="title">Checkout</p>
                         <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
-                            at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus
-                            ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio
-                            felis ut quam.</p>
+                        <div class="table-container">
+                            <table class="table">
+                              <!-- Your table content -->
+                            </table>
+                          </div>
                         <br>
                         <hr>
                         <div class="buttons ">
@@ -53,36 +54,7 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- 
-        <div class="container">
-            <div class="columns is-multiline">
-                {% for product in products %}
-                <div class="column is-one-quarter" style="display: block;">
-                    <article class="tile is-child box">
-                        <figure class="image is-128x128 is-flex is-centered">
-                            <img class="image " src="{{product.image.url}}">
-                            <script>console.log({{ product.image.url }})</script>
-                        </figure>
-                        <hr>
-                        <h3 class="title is-5">{{ product.name }}</h3>
-                        <p class="subtitle is-6">Item description.</p>
-                        <p class="subtitle is-6" style="font-size:10px; color: hsl(171, 100%, 41%)!important;">30
-                            cal.</small>
-                        <div class="buttons ">
-                            <button class="button is-primary">Add to cart</button>
-                        </div>
-                    </article>
-                </div>
-
-                {% endfor %}
-            </div>
-        </div> -->
-
-
-
-    </div>
+</div>
 </div>
 {% else %}
 <article class="message is-danger" id="delete">
