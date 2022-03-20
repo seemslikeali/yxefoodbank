@@ -25,6 +25,15 @@ def donatePage(request):
     return render(request, 'base/donate.html')
 
 
+# recently added donate form view
+def donateFormPage(request):
+    return render(request, 'base/donateform.html')
+
+# recently added volunteer form view
+def volunteerFormPage(request):
+    return render(request, 'base/volunteerform.html')
+
+
 def contactPage(request):
     return render(request, 'base/contact.html')
 
