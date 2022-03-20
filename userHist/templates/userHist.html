@@ -1,15 +1,43 @@
 {% extends 'main.html' %} {% block content %}
+
+
 <div class="container">
   <div class="notification is-secondary">
     <div class="title">History</div>
+    <h2>column-span: all</h2>
     <p>
-        This spot is for including the customer's order history
-        {%for form in forms%}
-        <div class="header">
-          <h1 class="title">{{form.transaction_id}}</h1>
-        </div>
-        {% endfor %}
+      <div class="table-container">
+        <table class="table">
+          
+          <tr>
+            <th>Order name</th>
+            <th>Order number</th>
+            <th>Order date</th>
+            <h2><th>Items ordered</th></h2>
+            <th>Completion</th>
+          </tr> 
+          {% for x in form %}
+
+          <tr>
+            
+            <th>{{ x.customer }}</th>
+            <th>{{ x.transaction_id }}</th>
+            <th>{{ x.date_ordered }} </th>
+            <span><p>
+            {% for y in formitems%}
+            <th>{{ y.product }} </th>
+            {% endfor %}
+          </p>
+          </span>
+            <th>{{ x.complete }}</th>
+
+          </tr>
+
+          {% endfor %}
+        </table>
+      </div>
     </p>
+    
   </div>
 </div>
 

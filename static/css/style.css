@@ -60,5 +60,7 @@ body > footer {
     margin-top: auto;
 }
 
-
+h2{
+    column-span: all
+}
 
