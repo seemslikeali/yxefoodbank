@@ -70,7 +70,6 @@
         <input class="input" type="text" placeholder="Name on Card" autofocus="" name="name_on_card" maxlength="30"
           required="" id="id_name_on_card" />
         <span class="icon is-small is-left">
-          <!-- <i class="fas fa-f"></i> -->
           <i class="fa-solid fa-user"></i>
         </span>
       </p>
@@ -79,13 +78,21 @@
     <!-- End Date -->
     <div class="field">
       <label class="label">End Date</label>
+      <!--End Date Month (MM)-->
       <p class="control has-icons-left has-icons-right">
-        <!--End Date Month (MM)-->
-        <input autocomplete="off" class="exp" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" 
-        placeholder="MM" type="text" />
-        <!--End Date Year (YY)-->
-        <input autocomplete="off" class="exp" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" 
-        placeholder="YY" type="text" />
+        <input autocomplete="off" class="input" type="tel" pattern="[0-9]" placeholder="MM" name="month" maxlength="2"
+          required="" id="month" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-calendar-day"></i>
+          </span>
+      </p>
+      <!--End Date Year (YY)-->
+      <p class="control has-icons-left has-icons-right">
+        <input autocomplete="off" class="input" type="tel" pattern="[0-9]" placeholder="YY" name="year" maxlength="2"
+          required="" id="year" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-calendar-day"></i>
+          </span>
       </p>
     </div>
 
@@ -95,6 +102,9 @@
       <p class="control has-icons-left has-icons-right">
         <input class="input" type="tel" pattern="[0-9]{10}" placeholder="698" name="cvv" maxlength="3"
           required="" id="id_cvv" />
+          <span class="icon is-small is-left">
+            <i class="fa-solid fa-question"></i>
+          </span>
       </p>
     </div>
 
