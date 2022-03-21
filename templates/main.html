@@ -1,33 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>YXE Food Bank</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <script
-      src="https://kit.fontawesome.com/a2e9d60101.js"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      function myFunction() {
-        var x = document.getElementById("delete");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>YXE Food Bank</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <script src="https://kit.fontawesome.com/a2e9d60101.js" crossorigin="anonymous"></script>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("delete");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
       }
-    </script>
-  </head>
+    }
+  </script>
+</head>
 
-  <body>
-    {% include 'navbar.html'%}
-    {% block content%}
-    {% endblock %}
-    {% include 'footer.html' %}
-  </body>
+<a href="{% url 'donate' %}" class="donato button is-warning is-medium is-rounded"
+  style=" position: fixed;bottom: 50%;right:-20px;z-index: 9999; transform: rotate(90deg);">Donate</a>
+
+<body>
+
+
+  {% include 'navbar.html'%}
+  {% block content%}
+  {% endblock %}
+  {% include 'footer.html' %}
+</body>
+
 </html>
