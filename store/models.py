@@ -1,3 +1,4 @@
+import re
 from django.db import models
 from account.models import Account
 
@@ -41,3 +42,9 @@ class Formitems(models.Model):
         Form, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
+
+    def add(self):
+        self.quantity += 1
+    
+    def remove(self):
+        self.quantity -= 1

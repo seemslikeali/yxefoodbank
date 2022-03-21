@@ -21,8 +21,8 @@ def userHistPage(request):
     user = request.user
     products = Product.objects.all()
     accounts = Account.objects.all()
+    form = Form.objects.all().filter(customer=user).filter(complete=True)
     formitem = Formitems.objects.all()
-    form = Form.objects.all()
     context = {'products':products,'account':accounts,'form': form, 'formitems':formitem}
 
     return render(request, 'userHist.html', context)
