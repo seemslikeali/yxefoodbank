@@ -4,40 +4,34 @@
 <div class="container">
   <div class="notification is-secondary">
     <div class="title">History</div>
-    <h2>column-span: all</h2>
-    <p>
+
       <div class="table-container">
         <table class="table">
-          
-          <tr>
-            <th>Order name</th>
-            <th>Order number</th>
-            <th>Order date</th>
-            <h2><th>Items ordered</th></h2>
-            <th>Completion</th>
-          </tr> 
-          {% for x in form %}
-
-          <tr>
-            
-            <th>{{ x.customer }}</th>
-            <th>{{ x.transaction_id }}</th>
-            <th>{{ x.date_ordered }} </th>
-            <span><p>
-            {% for y in formitems%}
-            <th>{{ y.product }} </th>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Order number</th>
+              <th>Order date</th>
+              <th>Items ordered</th>
+              <th>Completion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {% for x in form %}
+              <th>{{ x.customer }}</th>
+              <th>{{ x.transaction_id }}</th>
+              <th>{{ x.date_ordered }}</th>
+              {% for y in formitems%}
+              {% comment %} make it so the products items are a list. {% endcomment %}
+              <th>{{ y.product }}</th>
+              {% endfor %}
+              <th>{{ x.complete }}</th>
+            </tr>
             {% endfor %}
-          </p>
-          </span>
-            <th>{{ x.complete }}</th>
-
-          </tr>
-
-          {% endfor %}
+          </tbody>
         </table>
       </div>
-    </p>
-    
   </div>
 </div>
 
