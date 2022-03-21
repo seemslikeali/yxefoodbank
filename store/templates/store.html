@@ -43,6 +43,15 @@
                         <div class="table-container">
                             <table class="table">
                               <!-- Your table content -->
+                              {% for product in items %}
+                              <figure class="image is-64x64 is-flex is-centered">
+                                  <img class="image " src="{{product.product.image.url}}">
+                              </figure>
+                              <h3>{{ product.product.name }}</h3>
+                              <div class="buttons ">
+                                  <button data-product={{product.name}} onclick="test1('{{product.name}}')" data-action="add" class="button is-danger is-small">Remove</button>
+                              </div>
+                              {% endfor %}
                             </table>
                           </div>
                         <br>
