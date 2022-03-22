@@ -25,13 +25,17 @@ def userHistPage(request):
     formitem = Formitems.objects.all()
     context = {'products':products,'account':accounts,'form': form, 'formitems':formitem}
 
+    if (request.method == 'POST') and ('delete' in request.POST):
+        
+
+        for x in form:
+            x.delete()
+            return redirect('userHist')
+
+            
+
 
     return render(request, 'userHist.html', context)
     
-def deleteForm(request,transaction_id):
-    forms = Form.objects.all().filter(transaction_id = transaction_id)
-    forms.delete()
-    return redirect('delete')
-
 
 

@@ -13,7 +13,6 @@ urlpatterns = [
     path('', include('store.urls')),
     path('', include('userHist.urls')),
     path('register/', registration_view, name="register"),
-    path('', views.deleteForm, name="delete"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

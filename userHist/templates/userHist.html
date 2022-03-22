@@ -10,7 +10,7 @@
           <thead>
             <tr>
 
-              <!---Column headers-->>
+              <!---Column headers-->
               <th>User</th>
               <th>Order Number</th>
               <th>Order Date</th>
@@ -23,7 +23,7 @@
           <tbody>
             <tr>
 
-              <!--Start of information fetching from database-->>
+              <!--Start of information fetching from database-->
               {% for x in form %}
               <th>{{ x.customer }}</th>
               <th>{{ x.transaction_id }}</th>
@@ -48,9 +48,16 @@
               {% if x.fufilled == False %}
 
               <th>
-                <button class="button is-danger" onclick="deleteFunction('{{x.transaction_id}}')">Cancel</button>
-
+                <form method="POST">
+                  {% csrf_token %}
+                     <div class="buttons">
+                       <button name="delete" value="{{x.transaction_id}}"
+                         class="button is-danger">Cancel</button>
+                     </div>
+               </form>
               </th>
+                    
+                               
 
               <!--Condition for fulfilled orders-->
               {% else %}
