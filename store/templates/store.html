@@ -25,7 +25,7 @@
                                             style="font-size:10px; color: hsl(171, 100%, 41%)!important;">30
                                             cal.</small>
                                         <div class="buttons ">
-                                            <button class="button is-primary">Add to cart</button>
+                                            <button onclick="add('{{product.name}}')" class="button is-primary">Add to cart</button>
                                         </div>
                                     </article>
                                 </div>
@@ -49,7 +49,7 @@
                               </figure>
                               <h3>{{ product.product.name }}</h3>
                               <div class="buttons ">
-                                  <button data-product={{product.name}} onclick="test1('{{product.name}}')" data-action="add" class="button is-danger is-small">Remove</button>
+                                  <button onclick="remove('{{product.product.name}}')" data-action="add" class="button is-danger is-small">Remove</button>
                               </div>
                               {% endfor %}
                             </table>
@@ -78,6 +78,23 @@
     </div>
 </article>
 {% endif %}
+
+
+<script>
+
+
+    function add(name){
+        console.log('addi ' + name)
+
+    }
+
+    function remove(name){
+        console.log('rem ' + name)
+
+    }
+
+</script>
+
 
 
 {% endblock content %}

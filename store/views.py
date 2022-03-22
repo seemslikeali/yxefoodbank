@@ -1,8 +1,10 @@
+from inspect import _void
 from itertools import product
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.template import context
 from .models import Product
 from .models import *
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -17,6 +19,23 @@ def store(request):
         items = x.formitems_set.all()
     context = {'products':products, 'items': items}
     return render(request, 'store.html', context)
+
+
+def checkout(request):
+    products = Product.objects.all()
+    customer = request.user
+    form = Form.objects.all().filter(customer=customer).filter(complete=False)
+    for x in form:
+        items = x.formitems_set.all()
+    if request.method == 'POST':
+        item = request.POST.get('item')
+        for x in form:
+            print(item)
+            items = x.formitems_set.all().filter(product__name=item).delete()
+            return redirect('checkout')
+    context = {'products':products, 'items': items}
+    return render(request, 'checkout.html', context)
+
 
 def cart(request):
     print('----------------------------------->')
@@ -34,7 +53,3 @@ def cart(request):
     return render(request, 'cart.html', context)
 
 
-# def cart(request):
-#     customer = request.user.customer
-#     forms, created = form.objects.get_or_create()
-#     items = form.orderitem_set.all()
