@@ -45,20 +45,28 @@
                         <p class="title">Checkout</p>
                         <hr>
                         <div class="table-container">
-                            <table class="table">
-                                <!-- Your table content -->
-                                {% for product in items %}
-                                <figure class="image is-64x64 is-flex is-centered">
-                                    <img class="image " src="{{product.product.image.url}}">
-                                </figure>
-                                <h3>{{ product.product.name }}</h3>
-                                <form method="POST">
-                                    {% csrf_token %}
-                                    <div class="buttons ">
-                                        <button name="delete" value="{{product.product}}"
-                                            class="button is-danger is-small">Remove</button>
-                                    </div>
-                                </form>
+                            <table class="table is-striped">
+                                <tr>
+                                    <!-- Your table content -->
+                                    {% for product in items %}
+                                    <th>
+                                        <figure class="image is-64x64 is-flex is-centered">
+                                            <img class="image " src="{{product.product.image.url}}">
+                                        </figure>
+                                    </th>
+                                    <th>
+                                        <h3>{{ product.product.name }}</h3>
+                                    </th>
+                                    <th>
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="buttons ">
+                                                <button name="delete" value="{{product.product}}"
+                                                    class="button is-danger is-small">Remove</button>
+                                            </div>
+                                        </form>
+                                    </th>
+                                </tr>
                                 {% endfor %}
                             </table>
                         </div>
