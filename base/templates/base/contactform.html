@@ -1,0 +1,77 @@
+{% extends 'main.html' %} 
+{% block content %}
+<div class="container">
+  <div class="notification is-primary">
+    <div class="title">Contact Us</div>
+
+
+    <!-- First Name -->
+    <div class="field" style="line-height:2rem;">
+        <label class="label">First Name</label>
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" type="text" placeholder="First Name" autofocus="" name="first_name" maxlength="30"
+            required="" id="id_first_name" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-f"></i>
+          </span>
+        </p>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="field">
+        <label class="label">Last Name</label>
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" type="text" placeholder="Last Name" name="last_name" maxlength="30" required=""
+            id="id_last_name" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-l"></i>
+          </span>
+        </p>
+      </div>
+  
+      <!-- Email -->
+      <div class="field">
+        <label class="label">Email</label>
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" type="email" placeholder="Email" name="email" maxlength="60" required="" id="id_email" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
+  
+      <!-- Phone Number -->
+      <div class="field">
+        <label class="label">Phone Number</label>
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" type="tel" pattern="[0-9]{10}" placeholder="3061234567" name="phone" maxlength="10"
+            required="" id="id_phone" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-phone"></i>
+          </span>
+        </p>
+      </div>
+
+      <!--Question-->
+      <div class=""field">
+        <label class=""label">Any Questions</label>
+        <p class="control has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Questions" autofocus="" name="questions" maxlength="150"
+            required="" id="que" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-Q"></i>
+        </p>
+    </div>
+
+      <!--Donate Button-->
+    <div class="field">
+        <p class="control">
+          <br style="display:block; margin: 5px 0;">
+          <button class="button is-primary is-light">Send</button>
+        </p>
+      </div>
+
+  </div>
+</div>
+
+{% endblock content %}

@@ -24,9 +24,13 @@
                                         <p class="tag subtitle is-6"
                                             style="font-size:10px; color: hsl(171, 100%, 41%)!important;">30
                                             cal.</small>
-                                        <div class="buttons ">
-                                            <button class="button is-primary">Add to cart</button>
-                                        </div>
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="buttons ">
+                                                <button name="add" value="{{product}}" class="button is-primary">Add
+                                                    to cart</button>
+                                            </div>
+                                        </form>
                                     </article>
                                 </div>
 
@@ -42,42 +46,66 @@
                         <hr>
                         <div class="table-container">
                             <table class="table">
-                              <!-- Your table content -->
-                              {% for product in items %}
-                              <figure class="image is-64x64 is-flex is-centered">
-                                  <img class="image " src="{{product.product.image.url}}">
-                              </figure>
-                              <h3>{{ product.product.name }}</h3>
-                              <div class="buttons ">
-                                  <button data-product={{product.name}} onclick="test1('{{product.name}}')" data-action="add" class="button is-danger is-small">Remove</button>
-                              </div>
-                              {% endfor %}
+                                <!-- Your table content -->
+                                {% for product in items %}
+                                <figure class="image is-64x64 is-flex is-centered">
+                                    <img class="image " src="{{product.product.image.url}}">
+                                </figure>
+                                <h3>{{ product.product.name }}</h3>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div class="buttons ">
+                                        <button name="delete" value="{{product.product}}"
+                                            class="button is-danger is-small">Remove</button>
+                                    </div>
+                                </form>
+                                {% endfor %}
                             </table>
-                          </div>
+                        </div>
                         <br>
                         <hr>
-                        <div class="buttons ">
-                            <button class="button is-primary">Checkout</button>
-                        </div>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="buttons ">
+                                <button name="submit" value="{{product}}" class="button is-primary">Checkout</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </div>
 {% else %}
 <article class="message is-danger" id="delete">
     <div class="message-header">
-      <p>Attention</p>
-      <button class="delete" aria-label="delete" onclick="myFunction()"></button>
+        <p>Attention</p>
+        <button class="delete" aria-label="delete" onclick="myFunction()"></button>
     </div>
-    <div class="message-body" >
+    <div class="message-body">
         <ul class="messages">
             <li style="text-align:center;"> Please login/register to access this page </li>
-        </ul> 
+        </ul>
     </div>
 </article>
 {% endif %}
+
+
+<script>
+
+
+    function add(name) {
+        console.log('addi ' + name)
+
+    }
+
+    function remove(name) {
+        console.log('rem ' + name)
+
+    }
+
+</script>
+
 
 
 {% endblock content %}
