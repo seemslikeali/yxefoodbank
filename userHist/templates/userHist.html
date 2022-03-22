@@ -9,30 +9,70 @@
         <table class="table">
           <thead>
             <tr>
+
+              <!---Column headers-->>
               <th>User</th>
-              <th>Order number</th>
-              <th>Order date</th>
-              <th>Items ordered</th>
-              <th>Completion</th>
+              <th>Order Number</th>
+              <th>Order Date</th>
+              <th>Items Ordered</th>
+              <th>Order Quantity</th>
+              <th>Order Fulfilled</th>
+              <th>Edit Order</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+
+              <!--Start of information fetching from database-->>
               {% for x in form %}
               <th>{{ x.customer }}</th>
               <th>{{ x.transaction_id }}</th>
               <th>{{ x.date_ordered }}</th>
-              {% for y in formitems%}
-              {% comment %} make it so the products items are a list. {% endcomment %}
-              <th>{{ y.product }}</th>
+              <th>
+
+              {% for y in formitems %}
+              <dl>{{ y.product }}</dl>
               {% endfor %}
-              <th>{{ x.complete }}</th>
+
+              </th>
+
+              <th>
+                {% for y in formitems %}
+                <dl>{{y.quantity}}</dl>
+                {% endfor %}
+              </th>
+
+              <th>{{ x.fufilled }}</th>
+
+              <!--Condition for unfulfilled orders-->
+              {% if x.fufilled == False %}
+
+              <th>
+                <button class="button is-danger" onclick="deleteFunction('{{x.transaction_id}}')">Cancel</button>
+
+              </th>
+
+              <!--Condition for fulfilled orders-->
+              {% else %}
+              <th>Order Complete</th>
+              {% endif %}
+              
             </tr>
             {% endfor %}
+            
           </tbody>
         </table>
       </div>
   </div>
 </div>
 
+<script>
+  function deleteFunction(transaction_id) {
+    console.log("TESTS CANCEL");
+    window.location.href = "";
+    
+  }
+</script>
+
 {% endblock content %}
+

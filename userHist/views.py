@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -11,7 +11,7 @@ from django.shortcuts import render
 from django.template import context
 
 from account.models import Account
-from store.models import Form, Formitems, Product
+from store.models import Customer, Form, Formitems, Product
 
 # Create your views here.
 
@@ -25,7 +25,13 @@ def userHistPage(request):
     formitem = Formitems.objects.all()
     context = {'products':products,'account':accounts,'form': form, 'formitems':formitem}
 
+
     return render(request, 'userHist.html', context)
     
+def deleteForm(request,transaction_id):
+    forms = Form.objects.all().filter(transaction_id = transaction_id)
+    forms.delete()
+    return redirect('delete')
+
 
 

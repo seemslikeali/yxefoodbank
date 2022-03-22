@@ -6,12 +6,14 @@ from django.urls import path, include
 from account.views import (
     registration_view,
 )
+from userHist import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
     path('', include('store.urls')),
     path('', include('userHist.urls')),
     path('register/', registration_view, name="register"),
+    path('', views.deleteForm, name="delete"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
