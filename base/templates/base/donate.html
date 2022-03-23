@@ -1,7 +1,7 @@
 {% extends 'main.html' %} 
 {% block content %}
 <div class="container is-fluid">
-  <div class="notification is-secondary">
+  <div class="notification is-warning is-light">
     <div class="title">Donate</div>
     <p>
       Help us fight hunger together!
@@ -10,7 +10,7 @@
     <progress class="progress is-success" value="60" max="100">60%</progress>
     <br>
     <br>
-          <a class="button is-warning is-light" href="{% url 'donateForm' %}">Donate now</a>
+          <a class="button is-warning" href="{% url 'donateForm' %}">Donate now</a>
   </div>
   
 </div>

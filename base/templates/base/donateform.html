@@ -75,10 +75,10 @@
       </p>
     </div>
 
-    <!-- End Date -->
+    <!-- Expiry Date -->
     <div class="field">
-      <label class="label">End Date</label>
-      <!--End Date Month (MM)-->
+      <label class="label">Expiry Date</label>
+      <!--Expiry Date Month (MM)-->
       <p class="control has-icons-left has-icons-right">
         <input autocomplete="off" class="input" type="tel" pattern="[0-9]" placeholder="MM" name="month" maxlength="2"
           required="" id="month" />
@@ -108,8 +108,20 @@
       </p>
     </div>
 
-    <!--Donate Button-->
+    <!--Amount-->
     <div class="field">
+      <label class="label">Amount</label>
+      <p class="control has-icons-left has-icons-right">
+        <input class="input" type="tel" pattern="[0-9]{10}" placeholder="20" name="amount" maxlength="6"
+          required="" id="id_amount" />
+          <span class="icon is-small is-left">
+            <i class="fa fa-money"></i>
+          </span>
+      </p>
+    </div>
+
+    <!--Donate Button-->
+    <div class="field has-text-centered">
       <p class="control">
         <br style="display:block; margin: 5px 0;">
         <button class="button is-warning is-light">Donate</button>
