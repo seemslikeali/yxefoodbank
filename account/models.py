@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, username, first_name, last_name, phone, password=None,):
+        # in case fields are left empty
         if not email:
             raise ValueError('Users must have an email address')
         if not username:
@@ -17,6 +18,7 @@ class MyAccountManager(BaseUserManager):
         if not phone:
             raise ValueError('Users must have a phone number')
 
+        # a base for user creations. this is require information to be filled for a regular account
         user = self.model(
             email=self.normalize_email(email),
             username=username,
@@ -29,6 +31,7 @@ class MyAccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    # super user is required to create staff => is_staff
     def create_superuser(self, email, username, password, first_name, last_name, phone):
         user = self.create_user(
             username=username,
@@ -45,7 +48,9 @@ class MyAccountManager(BaseUserManager):
         return user
 
 
+# account creation restrictions and sql fields
 class Account(AbstractBaseUser):
+    # data fields, some are generated and some are asked user
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username = models.CharField(max_length=30, unique=True)
     date_joined = models.DateTimeField(
@@ -55,19 +60,19 @@ class Account(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-
-    phone = models.CharField(
-        verbose_name="phone", max_length=10, unique=True)
+    phone = models.CharField(verbose_name="phone", max_length=10, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
+
     USERNAME_FIELD = 'username'
     # can add more required fields here
     REQUIRED_FIELDS = ['email', 'phone', 'first_name', 'last_name']
-
+    # uses account MyAccountManager to go through each option require to create user
     objects = MyAccountManager()
-    # Django requirements
 
+    # Django requirements, account creation doesn't work without these fields as per documentations
     def __str__(self):
+        # kind of like a 'to string' method
         return self.username
 
     def has_perm(self, perm, obj=None):

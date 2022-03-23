@@ -5,6 +5,7 @@ from account.forms import RegistrationForm
 
 
 def registration_view(request):
+    # when user is already signed in, they shouldn't be allowed in sign up page
     if request.user.is_authenticated:
         return redirect('/')
 
