@@ -4,6 +4,16 @@ from account.models import Account
 
 # Create your models here.
 
+<<<<<<< Updated upstream
+=======
+class Formmetrics(models.Model):
+    form_tracker = models.IntegerField(default=0, null=True, blank=True)
+    def __int__(self):
+        return self.form_tracker
+
+
+
+>>>>>>> Stashed changes
 class Customer(models.Model):
     user = models.OneToOneField(Account, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, null=True)
