@@ -13,39 +13,37 @@ from django.http import JsonResponse
 
 def store(request):
     products = Product.objects.all()
-    context = {'products':products}
     customer = request.user
-    form = Form.objects.all().filter(customer=customer).filter(complete=False)
-    for x in form:
-        items = x.formitems_set.all()
+    #if form doesnt exist create a new one
+    form, created = Form.objects.get_or_create(customer=customer, complete=False)
+    #If form is new, form ID is created using the Item ID
+    if (form.transaction_id == None):
+        Form.objects.all().filter(customer=customer, complete=False).update(transaction_id=form.id)
+    items = form.formitems_set.all()
 
-
+    #if POST is received with delete (button is pressed), associated object deleted
     if (request.method == 'POST') and ('delete' in request.POST):
         item = request.POST.get('delete')
-        for x in form:
-            x.formitems_set.all().filter(product__name=item).delete()
-            return redirect('store')
+        form.formitems_set.all().filter(product__name=item).delete()
+        return redirect('store')
 
-    
+    #if POST is received with add (button is pressed), associated object added
     if (request.method == 'POST') and ('add' in request.POST):
         item = request.POST.get('add')
         product_added = Product.objects.get(name=item)
-        for x in form:
-            data = x.formitems_set.all().filter(product__name=item) 
-            if data.count() == 0:
-                x.formitems_set.create(
-                        product = product_added,
-                        form = form,
-                )
-                return redirect('store')
-
-
-
-    if (request.method == 'POST') and ('submit' in request.POST):
-        item = request.POST.get('submit')
-        for x in form:
-            x.complete = True
+        data = form.formitems_set.all().filter(product__name=item)
+        if data.count() == 0:
+            form.formitems_set.create(
+                    product = product_added,
+                    form = form,
+            )
             return redirect('store')
+
+
+    #if POST is received with submit (button is pressed), form is submitted.
+    if (request.method == 'POST') and ('submit' in request.POST):
+        Form.objects.all().filter(customer=customer, complete=False).update(complete=True)
+        return redirect('store')
 
 
 
