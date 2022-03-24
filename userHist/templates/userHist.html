@@ -15,7 +15,6 @@
               <th>Order Number</th>
               <th>Order Date</th>
               <th>Items Ordered</th>
-              <th>Order Quantity</th>
               <th>Order Fulfilled</th>
               <th>Edit Order</th>
             </tr>
@@ -31,16 +30,13 @@
               <th>
 
               {% for y in formitems %}
+              {% if x.transaction_id|stringformat:"s" == y.form|stringformat:"s" %}
               <dl>{{ y.product }}</dl>
+              {% endif %}
               {% endfor %}
 
               </th>
 
-              <th>
-                {% for y in formitems %}
-                <dl>{{y.quantity}}</dl>
-                {% endfor %}
-              </th>
 
               <th>{{ x.fufilled }}</th>
 
