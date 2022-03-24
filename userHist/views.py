@@ -26,9 +26,8 @@ def userHistPage(request):
     context = {'products':products,'account':accounts,'form': form, 'formitems':formitem}
 
     if (request.method == 'POST') and ('delete' in request.POST):
-        
-
-        for x in form:
+        item = request.POST.get('delete')
+        for x in form.filter(transaction_id = item):
             x.delete()
             return redirect('userHist')
 
