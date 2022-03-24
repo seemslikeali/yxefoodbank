@@ -5,71 +5,74 @@
   <div class="notification is-secondary">
     <div class="title">History</div>
 
-      <div class="table-container">
-        <table class="table">
-          <thead>
-            <tr>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
 
-              <!---Column headers-->
-              <th>User</th>
-              <th>Order Number</th>
-              <th>Order Date</th>
-              <th>Items Ordered</th>
-              <th>Order Quantity</th>
-              <th>Order Fulfilled</th>
-              <th>Edit Order</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
+            <!---Column headers-->
+            <th>User</th>
+            <th>Order Number</th>
+            <th>Order Date</th>
+            <th>Items Ordered</th>
+            <th>Order Quantity</th>
+            <th>Order Fulfilled</th>
+            <th>Edit Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
 
-              <!--Start of information fetching from database-->
-              {% for x in form %}
-              <th>{{ x.customer }}</th>
-              <th>{{ x.transaction_id }}</th>
-              <th>{{ x.date_ordered }}</th>
-              <th>
+            <!--Start of information fetching from database-->
+            {% for x in form %}
+            <th>{{ x.customer }}</th>
+            <th>{{ x.transaction_id }}</th>
+            <th>{{ x.date_ordered }}</th>
+            <th>
 
               {% for y in formitems %}
+
+              {% if x.transaction_id|stringformat:"s" == y.form|stringformat:"s" %}
               <dl>{{ y.product }}</dl>
+              {% endif %}
+
               {% endfor %}
 
-              </th>
+            </th>
+            <th>
+              {% for y in formitems %}
+              <dl>{{y.quantity}}</dl>
+              {% endfor %}
+            </th>
 
-              <th>
-                {% for y in formitems %}
-                <dl>{{y.quantity}}</dl>
-                {% endfor %}
-              </th>
 
-              <th>{{ x.fufilled }}</th>
+            <th>{{ x.fufilled }}</th>
 
-              <!--Condition for unfulfilled orders-->
-              {% if x.fufilled == False %}
+            <!--Condition for unfulfilled orders-->
+            {% if x.fufilled == False %}
 
-              <th>
-                <form method="POST">
-                  {% csrf_token %}
-                     <div class="buttons">
-                       <button name="delete" value="{{x.transaction_id}}"
-                         class="button is-danger">Cancel</button>
-                     </div>
-               </form>
-              </th>
-                    
-                               
+            <th>
+              <form method="POST">
+                {% csrf_token %}
+                <div class="buttons">
+                  <button name="delete" value="{{x.transaction_id}}" class="button is-danger">Cancel</button>
+                </div>
+              </form>
+            </th>
 
-              <!--Condition for fulfilled orders-->
-              {% else %}
-              <th>Order Complete</th>
-              {% endif %}
-              
-            </tr>
-            {% endfor %}
-            
-          </tbody>
-        </table>
-      </div>
+
+
+            <!--Condition for fulfilled orders-->
+            {% else %}
+            <th>Order Complete</th>
+            {% endif %}
+
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -77,9 +80,8 @@
   function deleteFunction(transaction_id) {
     console.log("TESTS CANCEL");
     window.location.href = "";
-    
+
   }
 </script>
 
 {% endblock content %}
-
