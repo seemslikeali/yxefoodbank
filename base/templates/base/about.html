@@ -1,18 +1,16 @@
 {% extends 'main.html' %} {% block content %}
-<div class="container">
-  <div class="notification is-danger">
+<div class="container is-max-desktop">
+  <div class="notification is-secondary">
     <div class="title">About</div>
-    <p>
-      YXE Food Bank is one of the regional food banks serving Saskatoon. Through YXE Food Bank's 
-      network of food distribution facilities, we are able to meet our customers' basic nutritional 
-      needs. More than 100 agencies, such as soup kitchens, homeless shelters, and religious institutions, 
-      are part of our network. YXE Food Bank strives to uphold the dignity of those we assist while 
-      also protecting their health by delivering healthy, culturally appropriate food to those in 
+    <p class="subtitle">
+      YXE Food Bank is one of the regional food banks serving Saskatoon. Through YXE Food Bank's
+      network of food distribution facilities, we are able to meet our customers' basic nutritional
+      needs. More than 100 agencies, such as soup kitchens, homeless shelters, and religious institutions,
+      are part of our network. YXE Food Bank strives to uphold the dignity of those we assist while
+      also protecting their health by delivering healthy, culturally appropriate food to those in
       need where it is most needed.
-    </p>
-    <br>
-    <p>
-      If you have some Questions, feel free to contact us.
+      <br><br>
+      <a href="{% url 'contact' %}"> If you have some questions, feel free to contact us.</a>
     </p>
   </div>
 </div>
