@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+<head>
+  <title>Thanks for your order!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="container is-fluid">
+    <h1 class="title">Thanks for your donation!</h1>
+
+    <p class="subtitle">
+      We appreciate your help! If you have any questions, please email
+      <a href="mailto:orders@example.com">orders@example.com</a>.
+    </p>
+    <br> <a href="{% url 'donationpage' %}">Click here to return to the selection page.</a></p>
+  </section>
+</body>
+{% endblock content %}

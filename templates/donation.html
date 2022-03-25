@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<head>
+    <title>Donate</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+
+
+<div class="container is-fluid">
+    <div class="notification is-secondary is-light">
+        <div class="title is-2">Every donation matters!</div>
+        <div class="subtitle">We are a non-profit company that runs mostly on donations. Keep your
+            community thriving by making a small donation.<br>Together we can fight hunger, and keep our city healthy.
+        </div>
+        <hr>
+        <h3 class="title">Make a difference by making a small donation.</h3>
+        <div class="columns is-multiline">
+            <hr>
+
+            {% for price in prices %}
+            <div class="column is-one-half" style="display: block;">
+                <form action="{% url 'create-checkout-session' price.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="box has-text-centered btnns">
+                        <h3 class="title is-6 has-text-centered">$ {{ price.get_display_price }}</h3>
+                        <button class="button is-warning has-text-centered " type="submit">Checkout</button>
+                    </div>
+                </form>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <br><br>
+        <h3 class="title is-6 has-text-centered">Our monthly donation goal</h3>
+        <progress class="progress is-success" value="60" max="100">60%</progress>
+        <h3 class="title is-6 has-text-centered">60%</h3>
+
+
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('.btnns button').click(function () {
+            $(this).addClass('is-loading');
+        });
+        setTimeout(
+            function() {
+                //do something special
+                $(this).removeClass('is-loading');
+            }, 5000);
+        });
+
+</script>
+
+
+{% endblock content %}

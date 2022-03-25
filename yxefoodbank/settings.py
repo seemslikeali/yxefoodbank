@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'account',
     'store',
-    'userHist'
+    'userHist',
+    'donation'
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-MEDIA_URL= '/images/'
+MEDIA_URL = '/images/'
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
@@ -136,3 +137,6 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY = "pk_test_51KgpJqFfRQxokHmFOghfXqXFNfDcH2pRmwaL4zpVyMjFbwMWLfuJ9eke2kpMTriEyJnphHdvgHOPLR3MsviSeIeG00gV1NbRVC"
+STRIPE_SECRET_KEY = "sk_test_51KgpJqFfRQxokHmFTXhw1GEWdhkKElI9YdFCatfgFH99WPhWfGkow7oBNWx3m573QWJzdjlCazMOd4JoTIdN3JHr00CeB7FwZ5"

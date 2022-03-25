@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block content %}
+<head>
+  <title>Checkout canceled</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="container is-fluid">
+  <br><br>
+  <h1 class="title">Checkout canceled</h1>
+  <section>
+    <p class="subtitle">Clicked the wrong donation?<br> <a href="{% url 'donationpage' %}">Click here to return to the selection page.</a></p>
+  </section>
+</body>
+{% endblock content %}

@@ -21,14 +21,6 @@ def aboutPage(request):
     return render(request, 'base/about.html')
 
 
-def donatePage(request):
-    return render(request, 'base/donate.html')
-
-
-# recently added donate form view
-def donateFormPage(request):
-    return render(request, 'base/donateform.html')
-
 # recently added volunteer form view
 def volunteerFormPage(request):
     return render(request, 'base/volunteerform.html')
@@ -36,6 +28,7 @@ def volunteerFormPage(request):
 
 def contactPage(request):
     return render(request, 'base/contact.html')
+
 
 def loginPage(request):
     # if a user is logged in, they can't login again

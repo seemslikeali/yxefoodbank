@@ -45,7 +45,7 @@
       <a class="navbar-item" href="{% url 'home' %}"> Home </a>
       <a class="navbar-item" href="{% url 'about' %}"> About </a>
       <a class="navbar-item"href="{% url 'contact' %}"> Contact </a>
-      <a class="navbar-item" href="{% url 'donate' %}"> Donate </a>
+      <a class="navbar-item" href="{% url 'donationpage' %}"> Donate </a>
       <a class="navbar-item" href="{% url 'volunteer' %}"> Volunteer </a>
       {% if request.user.is_authenticated %}
           <nav class="level" href="{% url 'store' %}">
