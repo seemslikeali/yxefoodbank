@@ -28,15 +28,21 @@ __DIR__
 ./base/templates holds all our pages that are not associated with account management
 ./account/templates currently only hold register.html page
 
-
-
 __CREATING NEW APP__
 How to create a new app from root directory
-
 python manage.py startapp store
-
 
 
 __PASSING CHANGES TO THE DATABASE__
 python manage.py makemigrations
 python manage.py migrate       
+
+
+__WINDOWS INSTALLATION OF PROJECT, follow video instruction given__
+> ctrl+~ (to go into terminal for visual studio code)
+python3 -m venv .   
+> switch to cmd
+.\Scripts\activate.bat
+********** make sure to change <USER> with ur windows username***************
+pip3 install -r C:\Users\<USER>\Downloads\yxefoodbank-main\yxefoodbank-main\requirements.txt
+python3 C:\Users\<USER>\Downloads\yxefoodbank-main\yxefoodbank-main\manage.py runserver
