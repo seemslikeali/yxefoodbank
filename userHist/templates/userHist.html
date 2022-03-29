@@ -23,14 +23,15 @@
             <tr>
 
               <!--Start of information fetching from database-->
-              {% for x in form %}
+              {% for x in form %} <!--Iteration through form model values-->
               <th>{{ x.customer }}</th>
               <th>{{ x.transaction_id }}</th>
               <th>{{ x.date_ordered }}</th>
               <th>
 
-              {% for y in formitems %}
-              {% if x.transaction_id|stringformat:"s" == y.form|stringformat:"s" %}
+                <!-- Display specific products ordered based on transaction_ID -->
+              {% for y in formitems %} <!--Iteration through formitems model values-->
+              {% if x.transaction_id|stringformat:"s" == y.form|stringformat:"s" %} <!--Cast transaction_id and form number values into comparable string-->
               <dl>{{ y.product }}</dl>
               {% endif %}
               {% endfor %}
@@ -43,7 +44,7 @@
               <!--Condition for unfulfilled orders-->
               {% if x.fufilled == False %}
 
-              <th>
+              <th>  <!-- Cancel button displays only if x.fulfilled is not completed-->
                 <form method="POST">
                   {% csrf_token %}
                      <div class="buttons">
@@ -68,14 +69,6 @@
       </div>
   </div>
 </div>
-
-<script>
-  function deleteFunction(transaction_id) {
-    console.log("TESTS CANCEL");
-    window.location.href = "";
-    
-  }
-</script>
 
 {% endblock content %}
 
