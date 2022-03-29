@@ -3,7 +3,6 @@
 
 <head>
     <title>Donate</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -22,10 +21,11 @@
         <h3 class="title">Make a difference by making a small donation.</h3>
         <div class="columns is-multiline">
             <hr>
-
+            {% comment %} going through the SQL database 'prices' to display items names and prices {% endcomment %}
             {% for price in prices %}
             <div class="column is-one-half" style="display: block;">
                 <form action="{% url 'create-checkout-session' price.id %}" method="POST">
+                    {% comment %} form requires secure token to work {% endcomment %}
                     {% csrf_token %}
                     <div class="box has-text-centered btnns">
                         <h3 class="title is-6 has-text-centered">$ {{ price.get_display_price }}</h3>
