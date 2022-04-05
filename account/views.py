@@ -12,6 +12,8 @@ def registration_view(request):
     context = {}
     if request.POST:
         form = RegistrationForm(request.POST)
+        # if fields are valid save form to table and redired user to homepage
+        # where its personalized for them
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')

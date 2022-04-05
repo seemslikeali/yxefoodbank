@@ -2,9 +2,9 @@ from re import A
 from django.contrib import admin
 from account.models import Account
 from django.contrib.auth.admin import UserAdmin
+
+
 # Register your models here.
-
-
 class AccountAdmin(UserAdmin):
     list_display = ('email', 'phone', 'username', 'first_name',
                     'last_name', 'last_login', 'is_admin', 'is_staff')
